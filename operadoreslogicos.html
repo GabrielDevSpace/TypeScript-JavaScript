@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt_BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Operadores Lógicos</title>
+</head>
+<body>
+    <h3>Operadores Lógicos</h3>
+    <p><b style='color:blue'>&&</b> > AND > E</p>
+    EX: if(num1===1 <b style='color:blue'>&&</b> num2===2) { resultado = 'num1=1 e num2=2'}
+    <br>
+    <p><b style='color:blue'>||</b> > OR > OU</p>
+    EX: if(num1===1 <b style='color:blue'>||</b> num2===1) { resultado = 'num1 ou num2 = 1'}
+    <br>
+    <p><b style='color:blue'>!</b> > NOT > NAO</p>
+    EX: if(num1<b style='color:blue'>!</b>true) { resultado = 'num1 é falso'}
+    <br>
+    <hr>
+    <p>Economizado codigo com os operadores:</p>
+    <p>const corUsuario = null<br>
+       const corPadrao = 'red'<br>
+       if (corUsuario === null) {
+        <br>
+        corUsuario = corPadrao
+        <br>
+        }
+        <br>
+        <br>
+        <b>Com a correta utilização do operador logico poderiamos simplificar:</b>
+        <p>const corUsuario = null<br>
+            const corPadrao = corUSuario || 'red'<br>
+        </p>
+</body>
+</html>
