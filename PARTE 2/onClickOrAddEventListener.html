@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>onClick Or AddEventListener</title>
+</head>
+<body>
+    <h3>onClick Or AddEventListener</h3>
+    <p id="onclicksum"></p>
+    <p id="onclickmultiply"></p>
+    <p id="addeventlistenersum"></p>
+    <p id="addeventlistenermultiply"></p>
+    <button id="button1" onclick="sum(10, 3), multiply(10, 3)">OnClick</button>
+    <button id="button2">AddEventListener</button>
+    <script>
+        function sum(x, y) {
+            let resultSum =  x + y;
+            document.querySelector("#onclicksum").innerHTML = `${x} + ${y} = ${resultSum}`;
+        };
+        
+        function multiply(x, y) {
+            let resultMultiply =  x * y;
+            document.querySelector("#onclickmultiply").innerHTML = `${x} * ${y} = ${resultMultiply}`;
+        }; 
+
+        const button2 = document.getElementById("button2");
+
+        button2.addEventListener("click", function(){
+            let x = 10;
+            let y = 3;
+            let sum = x + y;
+            let multiply = x * y;
+            document.querySelector("#addeventlistenersum").innerHTML = `${x} + ${y} = ${sum}`;
+            document.querySelector("#addeventlistenermultiply").innerHTML = `${x} * ${y} = ${multiply}`;
+        })
+    </script>
+</body>
+</html>
