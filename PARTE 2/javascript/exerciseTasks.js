@@ -15,14 +15,51 @@ inputTask.addEventListener("keypress", function(e){
    }
 });
 
+document.addEventListener("click", function(e){
+   const element = e.target;
+   if(element.classList.contains('delete')){
+      element.parentElement.remove();
+      saveTask();
+   }
+})
+
 function addTask(inputText){
    const taskLi = addLi();
    taskLi.innerText = inputText;
    tasks.appendChild(taskLi)
-   inputTask.value = '';
+      cleanInput();
+      deleteButton(taskLi);
+      saveTask();
 };
 
 function addLi(){
    const li = document.createElement("li");
    return li;
 };
+
+function cleanInput(){
+   inputTask.value = "";
+   inputTask.focus();
+}
+
+function deleteButton (taskli){
+   taskli.innerText += " ";
+   const button = document.createElement('button');
+   button.setAttribute("class", "delete")
+   button.innerText = "Delete";
+   taskli.appendChild(button);
+}
+
+   function saveTask(){
+      const liTasks = tasks.querySelectorAll("li");
+      const taskslist = [];
+
+      for (let task of liTasks){
+         let textTask = task.innerText;
+         textTask = textTask.replace("Delete", "").trim();
+         taskslist.push(textTask);
+      }
+      const tasksjSON = JSON.stringify(taskslist)
+      localStorage.setItem("taks",tasksjSON)
+      console.log(tasksjSON)
+   }
