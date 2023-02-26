@@ -60,6 +60,20 @@ function deleteButton (taskli){
          taskslist.push(textTask);
       }
       const tasksjSON = JSON.stringify(taskslist)
-      localStorage.setItem("taks",tasksjSON)
+      localStorage.setItem("tasks",tasksjSON)
       console.log(tasksjSON)
    }
+
+      function addSavedtasks(){
+         const tasks = localStorage.getItem('tasks');
+         //Convertendo tarefas para um ARRAY
+         const tasksList = JSON.parse(tasks);
+
+         for (let task of tasksList){
+            addTask(task);
+         }
+
+         console.log(tasks)
+      }
+
+      addSavedtasks();
