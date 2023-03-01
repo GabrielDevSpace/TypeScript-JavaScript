@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Different Ways to Declare Functions</title>
+</head>
+<body>
+    <h3>Different Ways to Declare Functions</h3>
+    <p><b style="color:blue">Function Hoisting</b></p>
+    <p>All declarations will be raised to the top of the documment.</p>
+    <p><b>Example:</b>
+        <br>Function SayHi(){ <br>
+      &nbsp console.log("Hi")<br>
+    }<br>
+
+    SayHi(); <b style="color:green">//Can be used or called both before and after of function</b>função menos verbosafunasd
+    </p>
+
+    <br>
+    <p><b style="color:blue">Function Expression</b></p>
+    <p>Can be used as a data or as the value of a variable.</p>
+    <p><b>Example:</b>
+        <br>const iAmAData = Function (){ <br>
+      &nbsp console.log("Hi")<br>
+    }<br>
+
+    <br>Function useData(value){ <br>
+        value();<br>
+      }<br>
+
+      useData(iAmAData); <b style="color:green">//I'm using data from another function</b>
+    </p>
+
+    <br>
+    <p><b style="color:blue">Arrow Function</b></p>
+    <p>ES6 - ECMAScript6 - New feature </p>
+    <p><b>Example:</b>
+        <br>const iAmAData = () => { <br>
+      &nbsp console.log("Hi")<br>
+    }<br>
+      iAmAData(); <b style="color:green">//less verbose function</b>
+    </p>
+
+    
+    <br>
+    <p><b style="color:blue">Function as method of an object</b></p>
+    <p> - </p>
+    <p><b>Example:</b>
+        <br>const iAmAData = { <br>
+     SayHi() { <br>
+        console.log('Hi')<br>
+        }<br>
+    };<br>
+    iAmAData.SayHi(); <b style="color:green">//used 
+        dot notation to access the method</b>
+    </p>
+</body>
+</html>

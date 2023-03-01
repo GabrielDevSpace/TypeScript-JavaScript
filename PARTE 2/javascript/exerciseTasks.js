@@ -8,6 +8,7 @@ btnAdd.addEventListener("click", function(){
    addTask(inputTask.value);
 });
 
+// Function to submit form with enter button 
 inputTask.addEventListener("keypress", function(e){
    if(e.keyCode === 13){
       if (!inputTask.value) return;
@@ -15,6 +16,7 @@ inputTask.addEventListener("keypress", function(e){
    }
 });
 
+// Function to add delete button
 document.addEventListener("click", function(e){
    const element = e.target;
    if(element.classList.contains('delete')){
@@ -23,6 +25,7 @@ document.addEventListener("click", function(e){
    }
 })
 
+// Function to add the task to the list
 function addTask(inputText){
    const taskLi = addLi();
    taskLi.innerText = inputText;
@@ -32,16 +35,19 @@ function addTask(inputText){
       saveTask();
 };
 
+// Function to add the Li element
 function addLi(){
    const li = document.createElement("li");
    return li;
 };
 
+// Function to clear input after de submission
 function cleanInput(){
    inputTask.value = "";
    inputTask.focus();
 }
 
+// Function to add a delete button
 function deleteButton (taskli){
    taskli.innerText += " ";
    const button = document.createElement('button');
@@ -50,30 +56,31 @@ function deleteButton (taskli){
    taskli.appendChild(button);
 }
 
-   function saveTask(){
-      const liTasks = tasks.querySelectorAll("li");
-      const taskslist = [];
+// Function to save task list in a json file conveting it to a string
+function saveTask(){
+   const liTasks = tasks.querySelectorAll("li");
+   const taskslist = [];
 
-      for (let task of liTasks){
-         let textTask = task.innerText;
-         textTask = textTask.replace("Delete", "").trim();
-         taskslist.push(textTask);
+   for (let task of liTasks){
+      let textTask = task.innerText;
+      textTask = textTask.replace("Delete", "").trim();
+      taskslist.push(textTask);
       }
-      const tasksjSON = JSON.stringify(taskslist)
-      localStorage.setItem("tasks",tasksjSON)
-      console.log(tasksjSON)
+   const tasksjSON = JSON.stringify(taskslist)
+   localStorage.setItem("tasks",tasksjSON)
+   console.log(tasksjSON)
+}
+
+// Function to load json localstorage and convert to array
+function addSavedtasks(){
+   const tasks = localStorage.getItem('tasks');
+   const tasksList = JSON.parse(tasks);
+
+   for (let task of tasksList){
+      addTask(task);
    }
 
-      function addSavedtasks(){
-         const tasks = localStorage.getItem('tasks');
-         //Convertendo tarefas para um ARRAY
-         const tasksList = JSON.parse(tasks);
+   console.log(tasks)
+}
 
-         for (let task of tasksList){
-            addTask(task);
-         }
-
-         console.log(tasks)
-      }
-
-      addSavedtasks();
+   addSavedtasks();
